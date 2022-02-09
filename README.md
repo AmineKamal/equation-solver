@@ -2,4 +2,4 @@
 Application that solves simple math expressions.
 
 # Demo
-![caption](demo.webp)
+<img src="demo.webp" width="45%" height="45%"/>
