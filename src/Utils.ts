@@ -15,45 +15,42 @@ export function toBinaryImage(ctx: CanvasRenderingContext2D)
 
     // Run through the image. 
     // The height of the image.
-    for (let y = 0; y < height; y++) {
-	    // *4 for 4 ints per pixel.
-	    // This is an input index.
+    for (let y = 0; y < height; y++) 
+    {
+        // 4 ints per pixel.
         let inpos = y * width * 4; 
-	    // This is an output index.
         let outpos = inpos;
-	    // The width of the image.
-        for (let x = 0; x < width; x++) {
-		    // Get the pixel of the red channel.
-            const r = imageData.data[inpos++]
-		    // Get the pixel of the green channel.
-            const g = imageData.data[inpos++]
-		    // Get the pixel of the blue channel.
-            const b = imageData.data[inpos++]
-		    // Get the pixel of the alpha channel.
-            const a = imageData.data[inpos++]
-            // Transform RGB color space to gray scale.
-			const gray =  (0.299 * r + 0.587 * g + 0.114 * b)
-            // This is our threshold. You can change it.
-            if (gray > 110)
-			{
-			    // Set the pixel is white.
-	            imageData.data[outpos++] = 255;
-    	        imageData.data[outpos++] = 255;
-        	    imageData.data[outpos++] = 255;
-            	imageData.data[outpos++] = a;
-			}
-			else
-			{
-			// Set the pixel is black.
-            	imageData.data[outpos++] = 0;
-            	imageData.data[outpos++] = 0;
-	            imageData.data[outpos++] = 0;
-    	        imageData.data[outpos++] = a;
-			}
-        } // The closing "The width of the image".
-    } // The closing "The height of the image".
 
-    // Put pixel data on canvas.
+        // The width of the image.
+        for (let x = 0; x < width; x++) 
+        {
+            const r = imageData.data[inpos++]; // red channel
+            const g = imageData.data[inpos++]; // green channel
+            const b = imageData.data[inpos++]; // blue channel
+            const a = imageData.data[inpos++]; // alpha channel
+
+            const gray =  (0.299 * r + 0.587 * g + 0.114 * b); // to grayscale
+
+            // Threshold to convert into black or white
+            if (gray > 110)
+            {
+                // Set the pixel is white.
+                imageData.data[outpos++] = 255;
+                imageData.data[outpos++] = 255;
+                imageData.data[outpos++] = 255;
+                imageData.data[outpos++] = a;
+            }
+            else
+            {
+                // Set the pixel is black.
+                imageData.data[outpos++] = 0;
+                imageData.data[outpos++] = 0;
+                imageData.data[outpos++] = 0;
+                imageData.data[outpos++] = a;
+            }
+        }
+    }
+
     ctx.putImageData(imageData, 0, 0);
 
     return actualData;
