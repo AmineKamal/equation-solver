@@ -46,7 +46,7 @@ export default function Camera() {
         setProgress({ status: "binarization" });
         const oldImage = toBinaryImage(ctx);
 
-        const res = await Tesseract.recognize(ctx.canvas, "eng", { logger: setProgress });
+        const res = await Tesseract.recognize(ctx.canvas, "equ+eng", { logger: setProgress });
         setResult(res);
 
         ctx.putImageData(oldImage, 0, 0);
