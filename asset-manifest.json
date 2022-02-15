@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/equation-solver/static/js/main.99d285fe.js",
+    "main.js": "/equation-solver/static/js/main.ba47e78a.js",
     "static/js/787.df5af6b4.chunk.js": "/equation-solver/static/js/787.df5af6b4.chunk.js",
     "service-worker.js": "/equation-solver/service-worker.js",
     "index.html": "/equation-solver/index.html",
-    "main.99d285fe.js.map": "/equation-solver/static/js/main.99d285fe.js.map",
+    "main.ba47e78a.js.map": "/equation-solver/static/js/main.ba47e78a.js.map",
     "787.df5af6b4.chunk.js.map": "/equation-solver/static/js/787.df5af6b4.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.99d285fe.js"
+    "static/js/main.ba47e78a.js"
   ]
 }
